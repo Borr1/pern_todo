@@ -22,12 +22,11 @@ const Register = () => {
       if (password === confirmPassword)
         try {
           const body = { first_name, last_name, username, email, password };
-          await fetch("http://localhost:5000/users", {
+          await fetch("http://localhost:5000/api/v1/post", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
           });
-          window.location.assign("/");
           navigate("/");
         } catch (err: any) {
           console.error(err.message);
@@ -194,7 +193,7 @@ const Register = () => {
           className="text-center"
           style={{ color: "white", fontWeight: "lighter" }}
         >
-          Borhen Benltaief © Pern_todo © 2022/2023{" "}
+          Borhen Benltaief © TacoDay © 2022/2023{" "}
         </h6>
       </div>
     </Fragment>

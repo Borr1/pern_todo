@@ -13,3 +13,9 @@ CREATE TABLE users(
     email VARCHAR(255),
     password VARCHAR(255)
 );
+
+CREATE TABLE login(
+    login_id SERIAL PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255)
+);

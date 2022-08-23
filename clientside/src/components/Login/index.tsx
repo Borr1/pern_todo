@@ -8,23 +8,28 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
   const Register = () => {
     navigate("/register");
   };
+  let navigate = useNavigate();
+  const HandleEventLogin = async (e: any) => {
+    e.preventDefault();
 
-  const Home = async (user: string, pass: string) => {
-    if (username !== "" && password !== "")
-      try {
-        const response = await fetch(
-          `http://localhost:5000/users/${username}${password}`
-        );
-        const jsonData = await response.json();
-        if (jsonData !== null) navigate("/home");
-      } catch (err) {
-        console.log(err);
-      }
-    else alert("All fields need to be filled");
+    const body = { username, password };
+    fetch("http://localhost:5000/api/v1/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error === false) {
+          navigate("/home");
+        } else {
+          alert("Verify!!");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -78,7 +83,7 @@ const Login = () => {
             <div className="mt-5 p-3 text-center">
               <button
                 className="btn btn-primary p-2"
-                onClick={() => Home(username, password)}
+                onClick={(e: any) => HandleEventLogin(e)}
               >
                 Login
               </button>
@@ -108,7 +113,7 @@ const Login = () => {
           className="text-center"
           style={{ color: "white", fontWeight: "lighter" }}
         >
-          Borhen Benltaief © Pern_todo © 2022/2023{" "}
+          Borhen Benltaief © TacoDay © 2022/2023{" "}
         </h6>
       </div>
     </Fragment>
