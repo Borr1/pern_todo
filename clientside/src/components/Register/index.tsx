@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Register.css";
 
 const Register = () => {
   const [first_name, setFirstName] = useState("");
