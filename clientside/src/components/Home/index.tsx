@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Home.css";
+import "./index.css";
 
 const Home = () => {
   /* const useCountdown = () => {
@@ -39,11 +39,11 @@ const Home = () => {
                 <div className="shop"></div>
               </div>
               <div className="flx">
-                <h1 className="nb2">10 meals</h1>
+                <h1 className="nb2">+20 meals</h1>
                 <div className="meal"></div>
               </div>
             </div>
-            <button className="mt-5 btn button" onClick={onShop}>
+            <button className="btn button" onClick={onShop}>
               <h1 className="bouton">SHOP NOW</h1>
             </button>
           </div>
@@ -55,7 +55,7 @@ const Home = () => {
             left: 0,
             bottom: 0,
             right: 0,
-            backgroundColor: "grey",
+            backgroundColor: "#292929",
           }}
         >
           <h6
