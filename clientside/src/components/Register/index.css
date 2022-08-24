@@ -1,0 +1,19 @@
+.register .backgroundImg
+{
+    background-image:url("../../../img/bg.jpg") ;
+    background-size: cover;
+    height: 100vh;
+    
+    background-repeat:no-repeat;
+}
+
+
+.register .form
+{
+        height: 85vh;
+        width: 65vh;
+        margin-left: 65vh;
+        
+        background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+        background: rgba(204, 204, 204, 0.5);
+}
