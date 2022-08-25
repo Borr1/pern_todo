@@ -19,9 +19,25 @@ const Home = () => {
     }, [countDownDate]);
   };
   */
+  type Shop = {
+    uid: string;
+    designation: string;
+    schdule: JSON;
+    address: string;
+    image: string;
+    mdp: JSON;
+    mdv: JSON;
+  };
   const navigate = useNavigate();
-  const onShop = () => {
-    navigate("/shops");
+
+  const onShop = async () => {
+    await fetch("http://localhost:5000/api/v1/getshops")
+      .then((response) => response.json())
+      .then((data) => {
+        let shops: Shop[];
+        shops = data.rows;
+        navigate("/shops", { state: shops });
+      });
   };
   return (
     <Fragment>
