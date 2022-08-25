@@ -282,3 +282,6 @@ INSERT INTO shops(uid,desingation,schedule,address,mdp,mdv,image) values (gen_ra
 ,'{
    
 }','');
+
+
+update shops set mdp='{"cash":"true","card":"true"}'   where uid='23a33cab-10af-49a5-aef1-e5102e6cc1d2';

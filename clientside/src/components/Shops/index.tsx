@@ -4,15 +4,15 @@ import "./index.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Shops = () => {
-  // type Shop = {
-  //   uid: string;
-  //   designation: string;
-  //   schdule: JSON;
-  //   address: string;
-  //   image: string;
-  //   mdp: JSON;
-  //   mdv: JSON;
-  // };
+  type Shop = {
+    uid: string;
+    designation: string;
+    schdule: JSON;
+    address: string;
+    image: string;
+    mdp: JSON;
+    mdv: JSON;
+  };
 
   const location = useLocation();
   const shops: any = location.state;
@@ -37,7 +37,7 @@ const Shops = () => {
       <div className="contentMagasins">
         {" "}
         <div className="magasins">
-          {shops.map((shop: any, index: number) => {
+          {shops.map((shop: Shop, index: number) => {
             // function timeOpen(): boolean {
             //   const date = new Date();
             //   const time = date.getHours() + ":" + date.getMinutes();
