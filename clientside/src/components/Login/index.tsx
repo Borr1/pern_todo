@@ -35,9 +35,8 @@ const Login = () => {
 
   return (
     <Fragment>
-      <div className="login">
-        <div className="backgroundImg">
-          {" "}
+      <body className="lgn">
+        <div className="login">
           <div className="border form">
             <h1 className="mt-5 text-center">Login</h1>
             <div style={{ height: "5vh" }}></div>
@@ -48,7 +47,7 @@ const Login = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                marginLeft: "8vh",
+                marginLeft: "3vh",
               }}
             >
               <form>
@@ -113,7 +112,7 @@ const Login = () => {
             </h6>
           </div>
         </div>
-      </div>
+      </body>
     </Fragment>
   );
 };

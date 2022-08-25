@@ -4,7 +4,7 @@ html {
     font-smooth: auto;
     font-weight: 300;
     line-height: 1.5;
-    color: #444;
+    
   }
   
  
@@ -61,24 +61,27 @@ html {
     z-index: 2;
   }
   figure:hover .date {
+    cursor: pointer;
     bottom: -59px;
   }
   figure:hover figcaption {
+    
     transform: translateY(-110%);
   }
   figure .date {
     position: absolute;
     bottom: 0;
     right: 20px;
-    bottom: 20px;
+    bottom: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
+    padding: 15px;
     background-color: rgba(241, 196, 15, 0.8);
     text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 5px;
   }
   figure .date span {
     color: white;
@@ -86,20 +89,28 @@ html {
     
   }
   figure .date span:first-child {
+
     font-family: "Source Code Pro", sans-serif;
     font-size: 20px;
     font-weight: 900;
   }
   figure .date span:last-child {
-    font-size: 14px;
-    font-weight: 400;
+    margin-top: 3px;
+    font-size: 20px;
+    
   }
   figure figcaption {
-    color: white;
+    
     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 1;
   }
+
+  .mouseOver
+  {
+    cursor: pointer;
+  }
   figure figcaption h4 {
+    color: white;
     margin: 0 0 5px;
     font-family: "Source Code Pro", sans-serif;
     font-size: 24px;
@@ -107,6 +118,8 @@ html {
     text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
   }
   figure figcaption h4 > span {
+    padding: 5px;
+    border-radius: 10px;
     background-color: rgba(241, 196, 15, 0.8);
   }
   figure figcaption p {
@@ -114,8 +127,36 @@ html {
     line-height: 1.5;
   }
 
+.magasins .address{
+    position: relative;
+    top: 25vh;
+    right: 5vh;
+    max-width: 150px;
+    max-height: 30px;
+    margin-right: 4px;
+    margin-left: 15px;
+}
 
-
+figure figcaption .address h5
+{
+    color:#292929;
+    font-size: 15px;
+    
+}
+.shops .logo
+{
+    border-radius: 8px;
+    background-image: url("../../../img/logo.png");
+    width:11vh;
+    height: 11vh;
+        background-size: contain;
+        background-position: center; 
+        top: 2vh;
+  
+    position:absolute;
+    
+  left: 2vh;
+}
 
 .minititre
 {
@@ -128,7 +169,7 @@ html {
 {
     background-image: url("../../../img/bg2.jpg");
     background-size: cover;
-    height: 25vh;
+    height: 15vh;
     background-repeat:no-repeat;
     background-position: 0ex; 
     

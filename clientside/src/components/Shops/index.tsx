@@ -1,94 +1,107 @@
 import React, { Fragment } from "react";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 const Shops = () => {
+  const navigate = useNavigate();
+  const onClick = () => {
+    navigate("/shop");
+  };
   return (
     <Fragment>
       <div className="shops">
         <div className="backgroundImg">
-          <h1>HELLo</h1>
+          <div className="logo"></div>
         </div>
       </div>
-      <div>
-        <h1 className="minititre">Our shops</h1>
+      <div className="mt-2">
+        <h1 className="minititre text-center">Our shops</h1>
       </div>
 
       <div className="contentMagasins">
         {" "}
         <div className="magasins">
-          <a href="http://localhost:3000/">
+          <a href="http://localhost:3000/shop">
             <figure>
               <div className="date">
                 <span className="card-date-day">Open</span>
-                <span className="card-date-month">{"   "}</span>
+                <span className="card-date-month">{"💵"}</span>
               </div>
-              <figcaption>
+
+              <figcaption className="text-center">
                 <h4>
-                  {" "}
                   <span>Tacoday Lac2</span>
                 </h4>
-                <p></p>
+                <div className="address">
+                  <h5>Lac2 12542 CarthqsdqsdageLand</h5>
+                </div>
               </figcaption>
             </figure>
           </a>
-          <a href="http://localhost:3000/">
+          <a href="http://localhost:3000/shop">
             <figure>
               <div className="date">
-                <span className="card-date-day">Open</span>
-                <span className="card-date-month">{"   "}</span>
+                <span>Open</span>
+                <span>{"💵💳🚚"}</span>
               </div>
               <figcaption>
                 <h4>
                   {" "}
                   <span>Tacoday Nasr</span>
                 </h4>
-                <p></p>
+                <div className="address">
+                  <h5>Nasr 12542 CssageLand</h5>
+                </div>
               </figcaption>
             </figure>
           </a>
-          <a href="http://localhost:3000/">
+          <div onClick={(e) => onClick()} className="mouseOver">
             <figure>
               <div className="date">
                 <span className="card-date-day">Open</span>
-                <span className="card-date-month">{"   "}</span>
+                <span className="card-date-month">{"💵🚚"}</span>
               </div>
               <figcaption>
                 <h4>
-                  {" "}
                   <span>Tacoday Douz</span>
                 </h4>
-                <p></p>
+                <div className="address">
+                  <h5>Douz 12542 qsdCssageLand</h5>
+                </div>
               </figcaption>
             </figure>
-          </a>
+          </div>
         </div>
         <div className="magasins">
-          <a href="http://localhost:3000/">
+          <a href="http://localhost:3000/shop">
             <figure>
               <div className="date">
                 <span className="card-date-day">Open</span>
-                <span className="card-date-month">{"   "}</span>
+                <span className="card-date-month">{"💵💳🚚"}</span>
               </div>
               <figcaption>
                 <h4>
                   {" "}
                   <span>Tacoday Marsa</span>
                 </h4>
-                <p></p>
+                <div className="address">
+                  <h5>Marsa 12542 CssageLand</h5>
+                </div>
               </figcaption>
             </figure>
           </a>
-          <a href="http://localhost:3000/">
+          <a href="http://localhost:3000/shop">
             <figure>
               <div className="date">
-                <span className="card-date-day">Open</span>
-                <span className="card-date-month">{"   "}</span>
+                <span className="card-date-day">Close</span>
+                <span className="card-date-month">{"💵💳"}</span>
               </div>
               <figcaption>
                 <h4>
-                  {" "}
                   <span>Tacoday Menzah6</span>
                 </h4>
-                <p></p>
+                <div className="address">
+                  <h5>Menzah6 12542 CssageLand</h5>
+                </div>
               </figcaption>
             </figure>
           </a>

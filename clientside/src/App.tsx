@@ -8,6 +8,7 @@ import Login from "./components/Login/index";
 import Register from "./components/Register/index";
 import Home from "./components/Home/index";
 import Shops from "./components/Shops/index";
+import Shop from "./components/Shop";
 function App() {
   return (
     /*
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/shops" element={<Shops />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
     </BrowserRouter>
   );
