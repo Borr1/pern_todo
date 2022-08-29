@@ -34,8 +34,8 @@ const Home = () => {
     await fetch("http://localhost:5000/api/v1/getshops")
       .then((response) => response.json())
       .then((data) => {
-        let shops: Shop[];
-        shops = data.rows;
+        let shops: Shop[] = data.rows;
+
         navigate("/shops", { state: shops });
       });
   };

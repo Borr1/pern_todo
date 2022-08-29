@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-// import {useEffect, useRef, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+
 import "./index.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -7,21 +7,33 @@ const Shops = () => {
   type Shop = {
     uid: string;
     designation: string;
-    schdule: JSON;
+    schedule: JSON;
     address: string;
     image: string;
-    mdp: JSON;
-    mdv: JSON;
+    mdp: { cash: string; card: string };
+    mdv: { delivery: string };
   };
+  const [day, setDay] = useState("");
+  const [time, setTime] = useState("");
+  useEffect(() => {
+    const date = new Date();
+    setDay(`${date.getDay()}`);
+    let hours: string;
+    let mins: string;
+    if (date.getHours() >= 10) hours = `${date.getHours()}`;
+    else hours = "0" + date.getHours();
+
+    if (date.getMinutes() >= 10) mins = `${date.getMinutes()}`;
+    else mins = "0" + date.getMinutes();
+
+    const hor = hours + ":" + mins;
+    setTime(hor);
+  }, []);
 
   const location = useLocation();
   const shops: any = location.state;
 
   const navigate = useNavigate();
-
-  const onClick = () => {
-    navigate("/shop");
-  };
 
   return (
     <Fragment>
@@ -38,23 +50,39 @@ const Shops = () => {
         {" "}
         <div className="magasins">
           {shops.map((shop: Shop, index: number) => {
-            // function timeOpen(): boolean {
-            //   const date = new Date();
-            //   const time = date.getHours() + ":" + date.getMinutes();
-            //   const day = date.getDay();
-            //   let bool = false;
-            //   const sched = shop.schedule.day;
-            //   for (let i = 0; i < sched.length; i++)
-            //     if (time >= sched[i].start && time <= sched[i].finish)
-            //       bool = true;
-            //   return bool;
-            // }
+            // return time;
+
+            const avaiable = () => {
+              let bool = "Close";
+              const sched: any = shop.schedule;
+              console.log(day);
+              for (let i = 0; i < sched["0"].length; i++) {
+                if (time >= sched["0"][i].start && time <= sched["0"][i].finish)
+                  bool = "Open";
+                else bool = "Close";
+              }
+              return bool;
+            };
+
+            const mdp_mdv = () => {
+              let output = "";
+              if (shop.mdp.cash === "true") output += "💵";
+              if (shop.mdp.card === "true") output += "💳";
+              if (shop.mdv.delivery === "true") output += "🚚";
+              return output;
+            };
+
             return (
-              <a href="http://localhost:3000/shop" key={index}>
+              <div
+                onClick={() => {
+                  navigate("/shop", { state: shop });
+                }}
+                key={index}
+              >
                 <figure>
                   <div className="date">
-                    <span className="card-date-day">{}</span>
-                    <span className="card-date-month">{"💵"}</span>
+                    <span className="card-date-day">{avaiable()}</span>
+                    <span className="card-date-month">{mdp_mdv()}</span>
                   </div>
 
                   <figcaption className="text-center">
@@ -66,7 +94,7 @@ const Shops = () => {
                     </div>
                   </figcaption>
                 </figure>
-              </a>
+              </div>
             );
           })}
 
