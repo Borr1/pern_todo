@@ -13,11 +13,11 @@ const Shops = () => {
     mdp: { cash: string; card: string };
     mdv: { delivery: string };
   };
-  const [day, setDay] = useState("");
+
   const [time, setTime] = useState("");
   useEffect(() => {
     const date = new Date();
-    setDay(`${date.getDay()}`);
+
     let hours: string;
     let mins: string;
     if (date.getHours() >= 10) hours = `${date.getHours()}`;
@@ -53,13 +53,18 @@ const Shops = () => {
             // return time;
 
             const avaiable = () => {
+              const date = new Date();
+
               let bool = "Close";
               const sched: any = shop.schedule;
-              console.log(day);
-              for (let i = 0; i < sched["0"].length; i++) {
-                if (time >= sched["0"][i].start && time <= sched["0"][i].finish)
+              const day = date.getDay();
+
+              for (let i = 0; i < sched[`${day}`].length; i++) {
+                if (
+                  time >= sched[`${day}`][i].start &&
+                  time <= sched[`${day}`][i].finish
+                )
                   bool = "Open";
-                else bool = "Close";
               }
               return bool;
             };
@@ -97,25 +102,6 @@ const Shops = () => {
               </div>
             );
           })}
-
-          {/*
-          <a href="http://localhost:3000/shop">
-            <figure>
-              <div className="date">
-                <span>Open</span>
-                <span>{"💵💳🚚"}</span>
-              </div>
-              <figcaption>
-                <h4>
-                  {" "}
-                  <span>Tacoday Nasr</span>
-                </h4>
-                <div className="address">
-                  <h5>Nasr 12542 CssageLand</h5>
-                </div>
-              </figcaption>
-            </figure>
-          </a> */}
         </div>
       </div>
 
