@@ -1,20 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useId } from "react";
 
 import "./index.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Shops = () => {
-  type Shop = {
-    uid: string;
-    designation: string;
-    schedule: JSON;
-    address: string;
-    image: string;
-    mdp: { cash: string; card: string };
-    mdv: { delivery: string };
-  };
-
   const [time, setTime] = useState("");
+  const id = useId();
   useEffect(() => {
     const date = new Date();
 
@@ -82,7 +73,7 @@ const Shops = () => {
                 onClick={() => {
                   navigate("/shop", { state: shop });
                 }}
-                key={index}
+                key={id}
               >
                 <figure>
                   <div className="date">
